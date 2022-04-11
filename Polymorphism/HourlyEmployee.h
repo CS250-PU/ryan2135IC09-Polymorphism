@@ -21,7 +21,7 @@ public:
 	double getPay () const;
 	void addWorkedHours (double additionalHours);
 	void print (std::ostream &rcOut) const;
-	std::istream &read (std::istream &rcIn);
+	bool read (std::istream &rcIn);
 
 private:
 	double mWageRate;

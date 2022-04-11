@@ -36,6 +36,17 @@ void HourlyEmployee::print (std::ostream &rcOut) const {
 		<< " Pay: " << getPay ();
 }
 
-std::istream &HourlyEmployee::read (std::istream &rcIn) {
-	return Employee::read (rcIn) && (rcIn >> mWageRate >> mHoursWorked));
+bool HourlyEmployee::read (std::istream &rcIn) {
+	bool bCompletedRead;
+
+	if (Employee::read (rcIn)) {
+		if (rcIn >> mWageRate >> mHoursWorked) {
+			bCompletedRead = true;
+		}
+	}
+	else {
+		bCompletedRead = false;
+	}
+
+	return bCompletedRead;
 }

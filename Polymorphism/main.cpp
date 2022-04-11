@@ -29,12 +29,12 @@ int main () {
     std::cout << std::endl;
   }
 
-  //std::cin.clear ();
-  //SalariedEmployee cSalariedEmployee;
-  //while (!cSalariedEmployee.read (std::cin)) {
-  //  cSalariedEmployee.print (std::cout);
-  //  std::cout << std::endl;
-  //}
+  std::cin.clear ();
+  SalariedEmployee cSalariedEmployee;
+  while (cSalariedEmployee.read (std::cin)) {
+    cSalariedEmployee.print (std::cout);
+    std::cout << std::endl;
+  }
 
   return EXIT_SUCCESS;
 }

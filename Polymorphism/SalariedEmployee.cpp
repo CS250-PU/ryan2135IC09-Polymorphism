@@ -12,16 +12,16 @@
 #include "SalariedEmployee.h"
 #include "Employee.h"
 
-SalariedEmployee::SalariedEmployee () : Employee (), mSalary (0) {
+SalariedEmployee::SalariedEmployee () : Employee (), mYearlySalary (0) {
 }
 
 SalariedEmployee::SalariedEmployee (const std::string &rcName, 
   const std::string &rcSSN, double salary) :
-  Employee (rcName, rcSSN), mSalary (salary) {
+  Employee (rcName, rcSSN), mYearlySalary (salary) {
 }
 
 double SalariedEmployee::getPay () const {
-  return mSalary;
+  return mYearlySalary;
 }
 
 void SalariedEmployee::print (std::ostream &rcOut) const {
@@ -36,13 +36,18 @@ void SalariedEmployee::print (std::ostream &rcOut) const {
 
 
 bool SalariedEmployee::read (std::istream &rcIn) {
-  bool bIsEOF = true;
+	bool bCompletedRead;
 
-  if (Employee::read (rcIn) && rcIn >> mSalary) {
-    bIsEOF = false;
-  }
+	if (Employee::read (rcIn)) {
+		if (rcIn >> mYearlySalary) {
+			bCompletedRead = true;
+		}
+	}
+	else {
+		bCompletedRead = false;
+	}
 
-  return bIsEOF;
+	return bCompletedRead;
 }
 
 double SalariedEmployee::getMonthlyPay () const {

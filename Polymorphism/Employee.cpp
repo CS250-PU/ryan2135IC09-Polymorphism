@@ -80,6 +80,15 @@ void Employee::print (std::ostream &rcOut) const {
 // Returned:		the output stream
 //**********************************************************************
 
-std::istream& Employee::read (std::istream &rcIn) {
-	return  rcIn >> mcName >> mcSSN;
+bool Employee::read (std::istream &rcIn) {
+	bool bCompletedRead;
+
+	if (rcIn >> mcName >> mcSSN) {
+		bCompletedRead = true;
+	}
+	else {
+		bCompletedRead = false;
+	}
+
+	return bCompletedRead;
 }

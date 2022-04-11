@@ -27,5 +27,5 @@ public:
   double getMonthlyPay () const;
 
 private:
-  double mSalary;
+  double mYearlySalary;
 };
